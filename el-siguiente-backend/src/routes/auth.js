@@ -1,3 +1,5 @@
+// src/routes/auth.js
+const express = require("express");
 const {
   registrarPaciente,
   registrarProfesional,
@@ -5,7 +7,7 @@ const {
   obtenerPerfil,
   solicitarResetPassword,
   resetPassword,
-} = require("../controllers/authcontroller");
+} = require("../controllers/authController");
 const { proteger } = require("../middlewares/authMiddleware");
 
 const router = express.Router();
