@@ -1,5 +1,3 @@
-// src/routes/auth.js
-const express = require("express");
 const {
   registrarPaciente,
   registrarProfesional,
@@ -7,7 +5,7 @@ const {
   obtenerPerfil,
   solicitarResetPassword,
   resetPassword,
-} = require("../controllers/authController"); // <- todo minúsculas
+} = require("../controllers/authcontroller");
 const { proteger } = require("../middlewares/authMiddleware");
 
 const router = express.Router();
