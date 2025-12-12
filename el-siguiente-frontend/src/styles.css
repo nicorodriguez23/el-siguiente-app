@@ -1,0 +1,570 @@
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  color: #1f2933;
+  background-color: #f5f7fa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(
+    circle at top,
+    #dbeafe 0,
+    #f5f7fa 45%,
+    #e0f2fe 100%
+  );
+}
+
+/* Layout general */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1;
+  padding: 1.5rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.navbar {
+  background: linear-gradient(90deg, #4f46e5, #0ea5e9);
+  color: white;
+  padding: 0.9rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.18);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.navbar-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: #f9fafb;
+  white-space: nowrap;
+}
+
+.navbar-logo span {
+  display: block;
+  font-weight: 400;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.navbar-links {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #e5efff;
+  border: 1px solid transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease,
+    transform 0.1s ease;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.nav-link-active {
+  background-color: #f9fafb;
+  color: #1f2933;
+}
+
+.navbar-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #f9fafb;
+  font-size: 1.8rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+.navbar-user-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.navbar-user-avatar {
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #f9fafb;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 3px 8px rgba(22, 163, 74, 0.45);
+}
+
+.navbar-user-icon {
+  pointer-events: none;
+}
+
+/* Menú desplegable de usuario */
+.navbar-user-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.5rem);
+  background: #0f172a;
+  color: #e5e7eb;
+  padding: 0.6rem 0.8rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.45);
+  min-width: 180px;
+  font-size: 0.9rem;
+
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 50;
+}
+
+.navbar-user-menu-open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.navbar-user-menu-header {
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.navbar-user-menu-header strong {
+  font-weight: 600;
+}
+
+.navbar-user-menu-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin-top: 0.25rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  background: transparent;
+  color: #e5e7eb;
+  text-decoration: none;
+}
+
+.navbar-user-menu-item:hover {
+  background-color: rgba(148, 163, 184, 0.2);
+}
+
+/* ========== 
+   Footer 
+   ========== */
+
+.footer {
+  background-color: #1f2933;
+  color: #f9fafb;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+/* ========== 
+   Tarjetas / Contenedores 
+   ========== */
+
+.card {
+  background-color: white;
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  border-top: 4px solid #4f46e5;
+  transition: transform 0.12s ease, box-shadow 0.12s ease,
+    border-color 0.12s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+  border-top-color: #0ea5e9;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-subtitle {
+  font-size: 1rem;
+  color: #4b5563;
+}
+
+/* ========== 
+   Formularios 
+   ========== */
+
+.form-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+label {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+input,
+select {
+  padding: 0.7rem 0.8rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease,
+    background-color 0.15s ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.25);
+  background-color: #f9fbff;
+}
+
+/* ========== 
+   Botones 
+   ========== */
+
+.btn {
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.15s ease, transform 0.1s ease,
+    box-shadow 0.1s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #4f46e5, #0ea5e9);
+  color: white;
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(37, 99, 235, 0.55);
+}
+
+.btn-secondary {
+  background-color: #e5e7eb;
+  color: #111827;
+  box-shadow: 0 2px 6px rgba(17, 24, 39, 0.12);
+}
+
+.btn-secondary:hover {
+  background-color: #d4d4d8;
+  transform: translateY(-1px);
+}
+
+/* ========== 
+   Textos grandes (legibles) 
+   ========== */
+
+.h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.text-muted {
+  color: #6b7280;
+}
+
+/* ========== 
+   Responsive 
+   ========== */
+
+@media (max-width: 768px) {
+  /* evitar scroll horizontal en mobile */
+  body {
+    overflow-x: hidden;
+  }
+
+  .navbar-inner {
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .navbar-logo span {
+    display: none;
+  }
+
+  .navbar-toggle {
+    display: inline-block;
+  }
+
+  .navbar-links {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    margin-top: 0.4rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 0.6rem 0.8rem;
+    background: rgba(15, 23, 42, 0.95);
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-4px);
+    transition: max-height 0.25s ease, opacity 0.2s ease,
+      transform 0.2s ease;
+    z-index: 40;
+  }
+
+  .navbar-links-open {
+    max-height: 260px;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .nav-link {
+    width: 100%;
+    text-align: left;
+  }
+
+  .navbar-user-wrapper {
+    margin-left: auto;
+  }
+
+  .app-main {
+    padding: 1rem 0.75rem;
+  }
+
+  .card {
+    margin: 0 0 1rem 0;
+    width: 100%;
+  }
+
+  .form-grid,
+  .card form {
+    width: 100%;
+  }
+
+  .card input,
+  .card select {
+    width: 100%;
+  }
+
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+/* ========== 
+Cartel de bienvenida suave 
+   ========== */
+
+.welcome-banner {
+  margin-bottom: 1rem;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  background-color: #dcfce7;
+  color: #166534;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 10px rgba(22, 101, 52, 0.12);
+  animation: fadeInOut 3s ease-in-out forwards;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+/* ========== 
+  Badges de estado y rol 
+   ========== */
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.badge-estado-activo {
+  background-color: #e6f4ea;
+  color: #137333;
+}
+
+.badge-estado-cancelado {
+  background-color: #fce8e6;
+  color: #c5221f;
+}
+
+.badge-rol-paciente {
+  background-color: #e7f0fd;
+  color: #185abc;
+}
+
+.badge-rol-profesional {
+  background-color: #fef7e0;
+  color: #b06c00;
+}
+
+/* ========== 
+  Código de reserva 
+   ========== */
+
+.codigo-reserva {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  background-color: #111827;
+  color: #f9fafb;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+}
+
+/* ========== 
+  Grid de profesionales
+   ========== */
+
+.profesionales-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.profesional-card {
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 1.2rem 1.3rem;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
+  border-left: 4px solid #4f46e5;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.profesional-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.profesional-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #4f46e5, #0ea5e9);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.profesional-nombre {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.profesional-especialidad {
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.profesional-meta {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.profesional-actions {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.profesional-actions .btn {
+  font-size: 0.9rem;
+  padding: 0.55rem 0.9rem;
+}
