@@ -1,8 +1,9 @@
 // src/services/api.js
 import axios from "axios";
 
-// URL base del backend
-export const API_BASE_URL = "http://localhost:4000/api";
+// URL base del backend (usa env en producción y localhost en desarrollo)
+export const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || "http://localhost:4000/api";
 
 // Claves de localStorage
 export const LS_USER_KEY = "el_siguiente_usuario";
