@@ -1,13 +1,9 @@
 // src/services/api.js
 import axios from "axios";
 
-// Detecta si estamos en producción (Vercel) o en local
-const isProduction = import.meta.env.PROD;
-
-// URL base del backend
-export const API_BASE_URL = isProduction
-  ? "https://el-siguiente-backend.onrender.com/api"
-  : "http://localhost:4000/api";
+// URL base del backend (Render en producción, localhost en desarrollo)
+export const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || "http://localhost:4000/api";
 
 // Claves de localStorage
 export const LS_USER_KEY = "el_siguiente_usuario";
