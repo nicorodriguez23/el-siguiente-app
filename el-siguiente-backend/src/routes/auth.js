@@ -7,7 +7,7 @@ const {
   obtenerPerfil,
   solicitarResetPassword,
   resetPassword,
-} = require("../controllers/authcontroller"); // <- todo minúsculas
+} = require("../controllers/authController"); // <- todo minúsculas
 const { proteger } = require("../middlewares/authMiddleware");
 
 const router = express.Router();
